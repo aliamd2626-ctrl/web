@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Ahmed | Mineral Resources & Mining Advisory</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E5AB',
+              goldHover: '#B89726',
+              dark: '#0A0E17',
+              surface: '#111827',
+              panel: '#1A2333',
+              border: '#273549',
+              copper: '#C86D51'
+            }
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom subtle mineral grain texture & ambient glow */
+    body {
+      background-color: #0A0E17;
+      color: #E2E8F0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF0B5 0%, #D4AF37 50%, #AA820A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-glass {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-glass:hover {
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.15);
+    }
+    /* Input custom slider styling */
+    input[type=range] {
+      accent-color: #D4AF37;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-brand-gold selection:text-brand-dark">
+
+  <!-- TOP STATUS BANNER -->
+  <div class="bg-brand-panel border-b border-brand-border py-1.5 px-4 text-xs text-slate-300">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 text-brand-gold font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Active Advisory Engagements
+        </span>
+        <span class="text-slate-500">|</span>
+        <span>East African Rift • Nubian Shield • Dallol Potash & Polymetallics</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="mailto:ali.ahmed.consult@geoconsult-advisory.com" class="hover:text-brand-gold transition flex items-center gap-1">
+          <i class="fa-regular fa-envelope text-brand-gold"></i> ali.ahmed.consult@geoconsult-advisory.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY HEADER NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-[#0A0E17]/90 backdrop-blur-md border-b border-brand-border/60">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-400/20 via-brand-panel to-amber-900/40 border border-brand-gold/40 flex items-center justify-center text-brand-gold group-hover:border-brand-gold transition duration-300 shadow-md">
+          <i class="fa-solid fa-gem text-lg group-hover:scale-110 transition duration-300"></i>
+        </div>
+        <div>
+          <span class="font-cinzel text-lg sm:text-xl font-bold tracking-wider text-slate-100 block">
+            ALI AHMED
+          </span>
+          <span class="text-[10px] tracking-widest uppercase font-mono text-brand-gold font-medium block -mt-0.5">
+            Mineral Resources Advisory
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-brand-gold transition">About Ali</a>
+        <a href="#services" class="hover:text-brand-gold transition">Practice Areas</a>
+        <a href="#calculator" class="hover:text-brand-gold transition">Haulage Estimator</a>
+        <a href="#readiness" class="hover:text-brand-gold transition">Readiness Audit</a>
+        <a href="#insights" class="hover:text-brand-gold transition">Case Studies</a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#contact" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-brand-gold via-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-brand-dark font-semibold text-xs tracking-wider uppercase transition shadow-lg shadow-amber-500/20 flex items-center gap-2">
+          <i class="fa-solid fa-compass-drafting"></i> Retain Advisory
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-brand-panel focus:outline-none">
+        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-6 py-6 space-y-4">
+      <a href="#about" class="block text-slate-200 hover:text-brand-gold font-medium py-1 mobile-link">About Ali</a>
+      <a href="#services" class="block text-slate-200 hover:text-brand-gold font-medium py-1 mobile-link">Practice Areas</a>
+      <a href="#calculator" class="block text-slate-200 hover:text-brand-gold font-medium py-1 mobile-link">Haulage Estimator</a>
+      <a href="#readiness" class="block text-slate-200 hover:text-brand-gold font-medium py-1 mobile-link">Readiness Audit</a>
+      <a href="#insights" class="block text-slate-200 hover:text-brand-gold font-medium py-1 mobile-link">Case Studies</a>
+      <a href="#contact" class="inline-block w-full text-center py-3 bg-brand-gold text-brand-dark font-bold text-xs uppercase tracking-wider rounded-lg mobile-link">
+        Book Strategic Consultation
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative pt-16 pb-24 lg:pt-28 lg:pb-32 overflow-hidden">
+    <!-- Ambient gold background glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute -top-10 right-10 w-80 h-80 bg-brand-copper/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-panel border border-brand-gold/30 text-xs font-mono text-brand-gold mb-6">
+          <i class="fa-solid fa-shield-halved"></i> Independent Senior Mining & Geological Advisory
+        </div>
+        <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight mb-6">
+          Unlocking Subsurface Potential with <span class="gold-gradient-text">Precision & Integrity</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-light mb-8 max-w-2xl mx-auto">
+          Providing international mining companies, institutional investors, and sovereign entities with rigorous exploration targeting, JORC/NI 43-101 compliance oversight, concession licensing, and mine haulage operational strategies across East Africa.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#calculator" class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold text-sm tracking-wide transition shadow-xl shadow-brand-gold/20 flex items-center justify-center gap-2.5">
+            <i class="fa-solid fa-calculator"></i> Ore Transport & Cost Simulator
+          </a>
+          <a href="#services" class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-brand-panel hover:bg-slate-800 text-slate-200 border border-brand-border font-medium text-sm transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-layer-group text-brand-gold"></i> Core Advisory Services
+          </a>
+        </div>
+      </div>
+
+      <!-- KEY METRICS BANNER -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="card-glass p-6 rounded-xl text-center">
+          <div class="text-3xl sm:text-4xl font-bold font-cinzel text-brand-gold mb-1" id="counterConcessions">18+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Concessions Evaluated</div>
+          <p class="text-[11px] text-slate-500 mt-1">Gold, Potash, Copper & Lithium</p>
+        </div>
+
+        <div class="card-glass p-6 rounded-xl text-center">
+          <div class="text-3xl sm:text-4xl font-bold font-cinzel text-brand-gold mb-1" id="counterTons">120M+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">MT Resources Mapped</div>
+          <p class="text-[11px] text-slate-500 mt-1">Under strict JORC / NI 43-101 protocols</p>
+        </div>
+
+        <div class="card-glass p-6 rounded-xl text-center">
+          <div class="text-3xl sm:text-4xl font-bold font-cinzel text-brand-gold mb-1" id="counterLicensing">100%</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">Regulatory Approval Track</div>
+          <p class="text-[11px] text-slate-500 mt-1">Ministry of Mines & ESMP compliance</p>
+        </div>
+
+        <div class="card-glass p-6 rounded-xl text-center">
+          <div class="text-3xl sm:text-4xl font-bold font-cinzel text-brand-gold mb-1">$450M+</div>
+          <div class="text-xs uppercase tracking-wider text-slate-400 font-medium">JV & CAPEX Appraised</div>
+          <p class="text-[11px] text-slate-500 mt-1">Institutional and FDI syndications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ALI AHMED SECTION -->
+  <section id="about" class="py-20 bg-brand-surface/60 border-y border-brand-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Profile / Credentials Card -->
+        <div class="lg:col-span-5">
+          <div class="relative">
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-gold via-amber-600 to-brand-copper rounded-2xl blur opacity-30"></div>
+            <div class="relative bg-brand-panel p-6 sm:p-8 rounded-2xl border border-brand-border">
+              <div class="flex items-center gap-4 mb-6 pb-6 border-b border-brand-border">
+                <div class="w-20 h-20 rounded-full bg-slate-800 border-2 border-brand-gold/60 flex items-center justify-center overflow-hidden">
+                  <i class="fa-solid fa-user-tie text-3xl text-brand-gold"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-white font-cinzel">Ali Ahmed</h3>
+                  <p class="text-xs text-brand-gold font-mono uppercase tracking-wider">Senior Principal Geologist</p>
+                  <p class="text-xs text-slate-400 mt-1">M.Sc. Exploration Geology • QP Candidate</p>
+                </div>
+              </div>
+
+              <div class="space-y-4 text-xs">
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-location-crosshairs text-brand-gold mt-1"></i>
+                  <div>
+                    <span class="font-semibold text-slate-200">Regional Specialization:</span>
+                    <p class="text-slate-400">East African Orogen, Arabian-Nubian Shield, Main Ethiopian Rift belt, Danakil Depression evaporites.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-certificate text-brand-gold mt-1"></i>
+                  <div>
+                    <span class="font-semibold text-slate-200">Technical Qualifications:</span>
+                    <p class="text-slate-400">GIS & Remote Sensing (Hyperspectral), Geochemical Assay Interpretation, QA/QC Verification, Mine Logistical Modelling.</p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i class="fa-solid fa-handshake-angle text-brand-gold mt-1"></i>
+                  <div>
+                    <span class="font-semibold text-slate-200">Stakeholder & ESG Oversight:</span>
+                    <p class="text-slate-400">Community Social License to Operate (SLO), Artisanal Mining Formalization, Environmental and Social Management Plans (ESMP).</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-brand-border flex items-center justify-between text-xs text-slate-400 font-mono">
+                <span><i class="fa-solid fa-file-pdf text-red-400 mr-1"></i> Executive Dossier</span>
+                <span class="text-brand-gold hover:underline cursor-pointer" onclick="scrollToContact('Comprehensive Profile CV')">Request Credentials &rarr;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 text-xs font-mono uppercase text-brand-gold tracking-widest">
+            <span class="w-8 h-px bg-brand-gold"></span> Executive Biography
+          </div>
+          <h2 class="font-cinzel text-2xl sm:text-4xl font-bold text-white leading-snug">
+            Bridging High-Stakes Geological Science with Practical Commercial Execution
+          </h2>
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+            With over 15 years in both frontier greenfield exploration and brownfield mine expansion, <strong class="text-white">Ali Ahmed</strong> provides an authoritative compass for mining conglomerates, private equity syndicates, and governments.
+          </p>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Mineral ventures in East Africa require more than just technical drilling data; they require nuanced mastery of regional tectonic geology, local tenure frameworks, complex cross-border logistics from pit to port, and community social covenants. Ali's advisory practice ensures your capital expenditure is targeted, defensible against international reporting standards, and legally insulated.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="bg-brand-panel/60 p-4 rounded-lg border border-brand-border/60">
+              <h4 class="text-white font-semibold text-sm flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-chart-line text-brand-gold"></i> Bankable Studies
+              </h4>
+              <p class="text-xs text-slate-400">Scoping, Pre-Feasibility (PFS), and Definitive Feasibility Study (DFS) technical geology audits.</p>
+            </div>
+            <div class="bg-brand-panel/60 p-4 rounded-lg border border-brand-border/60">
+              <h4 class="text-white font-semibold text-sm flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-truck-ramp-box text-brand-gold"></i> Bulk Logistics
+              </h4>
+              <p class="text-xs text-slate-400">Optimizing inland ore haulage routes, port transit bottlenecks, and heavy crushing fleet selection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS / SERVICES -->
+  <section id="services" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase text-brand-gold tracking-widest">Core Advisory Pillars</span>
+        <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mt-2">Comprehensive Mineral Consulting Services</h2>
+        <p class="text-slate-400 text-sm mt-3">From reconnaissance anomalies to full commercial extraction permits, tailored for high-capital ventures.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="card-glass p-7 rounded-xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-amber-400/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-earth-africa text-xl"></i>
+            </div>
+            <h3 class="font-cinzel text-lg font-bold text-white mb-3">Geological Mapping & Targeting</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Satellite multispectral alteration mapping, structural lineament analysis, magnetic/radiometric anomaly interpretation, and systematic geochemical soil/trenching grids.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+              <li>• Alteration halo delineations</li>
+              <li>• Trenching & Core Logging QA/QC</li>
+              <li>• Greenfield Target Generation</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border/60 text-brand-gold text-xs font-semibold flex items-center justify-between">
+            <span>Explore Scope</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card-glass p-7 rounded-xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-amber-400/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-scale-balanced text-xl"></i>
+            </div>
+            <h3 class="font-cinzel text-lg font-bold text-white mb-3">Resource Estimation & JORC Audits</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Geostatistical variography, block modeling, cut-off grade determination, and rigorous validation in preparation for JORC Code or Canadian NI 43-101 compliance declarations.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+              <li>• Wireframing & Block Models</li>
+              <li>• Grade distribution & Variograms</li>
+              <li>• Inferred to Measured Upgrades</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border/60 text-brand-gold text-xs font-semibold flex items-center justify-between">
+            <span>Audit Criteria</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card-glass p-7 rounded-xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-amber-400/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-stamp text-xl"></i>
+            </div>
+            <h3 class="font-cinzel text-lg font-bold text-white mb-3">Licensing, JV & ESIA Compliance</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Navigating Ministry regulatory licensing procedures, structuring joint ventures between foreign exploration capital and local concession holders, plus environmental social impact mitigation.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+              <li>• Mining Concession Conveyancing</li>
+              <li>• ESIA & Social License Advisory</li>
+              <li>• Model Production Sharing Deals</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border/60 text-brand-gold text-xs font-semibold flex items-center justify-between">
+            <span>Regulatory Terms</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card-glass p-7 rounded-xl flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-amber-400/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-truck-moving text-xl"></i>
+            </div>
+            <h3 class="font-cinzel text-lg font-bold text-white mb-3">Mine Logistics & Fleet Strategy</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Bulk materials handling from remote pit locations to export shipping terminals. Optimization of crushing circuits, contracted tipper truck logistics, fuel depot sizing, and cost-per-ton-km control.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-1.5 font-mono">
+              <li>• Ore Haulage Routing Models</li>
+              <li>• Port Staging & Demurrage Control</li>
+              <li>• Mobile Crusher Integration</li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-brand-border/60 text-brand-gold text-xs font-semibold flex items-center justify-between">
+            <span>Logistics Specs</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOL 1: ORE HAULAGE & LOGISTICS CALCULATOR -->
+  <section id="calculator" class="py-20 bg-brand-surface/40 border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-xs font-mono uppercase text-brand-gold tracking-widest">Interactive Engineering Tool</span>
+        <h2 class="font-cinzel text-3xl font-bold text-white mt-1">Ore Transport & Haulage Logistics Calculator</h2>
+        <p class="text-slate-400 text-sm mt-2">Simulate freight operational expenditure, required truck fleet size, and cost per metric ton from mine pit to deepwater port or domestic smelter.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Controls -->
+        <div class="lg:col-span-7 bg-brand-panel p-6 sm:p-8 rounded-xl border border-brand-border shadow-xl">
+          <div class="space-y-6">
+            <!-- Metric 1: Monthly Tonnage -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="monthlyTonnage" class="text-sm font-semibold text-slate-200">
+                  Monthly Ore Production Volume (Dry MT):
+                </label>
+                <span id="tonnageDisplay" class="font-mono text-sm font-bold text-brand-gold bg-brand-dark px-3 py-1 rounded border border-brand-border">
+                  45,000 MT
+                </span>
+              </div>
+              <input type="range" id="monthlyTonnage" min="5000" max="250000" step="5000" value="45000" class="w-full h-2 bg-slate-700 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
+                <span>5,000 MT (Pilot)</span>
+                <span>100,000 MT</span>
+                <span>250,000 MT (Full-Scale)</span>
+              </div>
+            </div>
+
+            <!-- Metric 2: Distance to Port/Smelter -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="distanceKm" class="text-sm font-semibold text-slate-200">
+                  Haulage Distance (Mine Pit to Port / Railhead):
+                </label>
+                <span id="distanceDisplay" class="font-mono text-sm font-bold text-brand-gold bg-brand-dark px-3 py-1 rounded border border-brand-border">
+                  380 km
+                </span>
+              </div>
+              <input type="range" id="distanceKm" min="50" max="1200" step="10" value="380" class="w-full h-2 bg-slate-700 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
+                <span>50 km (Proximate)</span>
+                <span>600 km</span>
+                <span>1,200 km (Remote Interior)</span>
+              </div>
+            </div>
+
+            <!-- Metric 3: Haulage Freight Rate -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="freightRate" class="text-sm font-semibold text-slate-200">
+                  Contract Freight Tariff ($ / MT-km):
+                </label>
+                <span id="rateDisplay" class="font-mono text-sm font-bold text-brand-gold bg-brand-dark px-3 py-1 rounded border border-brand-border">
+                  $0.085 / MT-km
+                </span>
+              </div>
+              <input type="range" id="freightRate" min="0.040" max="0.180" step="0.005" value="0.085" class="w-full h-2 bg-slate-700 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[11px] text-slate-500 font-mono mt-1">
+                <span>$0.04 (Paved Highway/Rail)</span>
+                <span>$0.09 (Mixed Terrain)</span>
+                <span>$0.18 (Rugged Off-road)</span>
+              </div>
+            </div>
+
+            <!-- Metric 4: Truck Payload Capacity -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="truckPayload" class="text-sm font-semibold text-slate-200">
+                  Fleet Truck Payload Capacity:
+                </label>
+                <select id="truckPayload" class="bg-brand-dark border border-brand-border text-brand-gold rounded px-3 py-1.5 text-xs font-mono focus:outline-none focus:border-brand-gold">
+                  <option value="30">30 MT (Standard 3-Axle Tipper)</option>
+                  <option value="40" selected>40 MT (Heavy Side-Tipper Semi-trailer)</option>
+                  <option value="55">55 MT (Double-Trailer Road Train)</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-400">Assumes 24 working days/month and 1.5 - 2.5 day turnaround cycles dependent on one-way distance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculated Results Output Card -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-brand-panel via-brand-dark to-brand-panel p-6 sm:p-8 rounded-xl border border-brand-gold/40 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-gold/5 rounded-full blur-2xl"></div>
+
+          <h3 class="text-base font-cinzel font-bold text-white mb-6 pb-3 border-b border-brand-border flex items-center justify-between">
+            <span>Projected Logistics Budget</span>
+            <i class="fa-solid fa-file-invoice-dollar text-brand-gold"></i>
+          </h3>
+
+          <div class="space-y-5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-400">Cost Per Metric Ton Delivered:</span>
+              <span id="costPerTonDisplay" class="font-mono text-lg font-bold text-white">$32.30 / MT</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-400">Monthly Freight Expenditure:</span>
+              <span id="monthlyFreightDisplay" class="font-mono text-xl font-bold text-brand-gold">$1,453,500</span>
+            </div>
+
+            <div class="flex items-center justify-between">
+              <span class="text-xs text-slate-400">Annualized Haulage Budget:</span>
+              <span id="annualFreightDisplay" class="font-mono text-sm text-slate-300">$17.44M / yr</span>
+            </div>
+
+            <div class="p-4 rounded-lg bg-brand-surface/80 border border-brand-border space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-slate-300">Active Truck Fleet Required:</span>
+                <span id="requiredTrucksDisplay" class="font-mono text-sm font-bold text-amber-300">~94 Dedicated Units</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-medium text-slate-300">Daily Truck Dispatches:</span>
+                <span id="dailyTripsDisplay" class="font-mono text-sm text-slate-300">47 loads / day</span>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400 italic">
+              *Calculated values are preliminary economic indicators. Ali Ahmed Advisory provides detailed fleet tender documentation, diesel hedging plans, and road axle-load compliance strategies.
+            </p>
+
+            <button onclick="requestLogisticsReport()" class="w-full py-3 bg-brand-gold/15 hover:bg-brand-gold/25 border border-brand-gold/40 text-brand-gold font-semibold text-xs rounded uppercase tracking-wider transition">
+              Export Scenario to Inquiry Form &darr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOL 2: PROJECT READINESS & LICENSING AUDIT -->
+  <section id="readiness" class="py-20 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-mono uppercase text-brand-gold tracking-widest">Self-Assessment Tool</span>
+        <h2 class="font-cinzel text-3xl font-bold text-white mt-1">Concession Readiness & Licensing Audit</h2>
+        <p class="text-slate-400 text-sm mt-2">Evaluate your current exploration or exploitation asset against mandatory statutory and bankability gates.</p>
+      </div>
+
+      <div class="bg-brand-panel p-6 sm:p-8 rounded-xl border border-brand-border">
+        <form id="auditForm" class="space-y-6">
+          <!-- Question 1 -->
+          <div class="p-4 rounded-lg bg-brand-surface/60 border border-brand-border/60">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="gate1" class="w-5 h-5 mt-0.5 rounded border-brand-border text-brand-gold focus:ring-brand-gold bg-brand-dark cursor-pointer audit-check" data-score="25">
+              <div>
+                <label for="gate1" class="text-sm font-semibold text-white block cursor-pointer">
+                  1. Statutory Cadastre & Mineral Rights Clearance
+                </label>
+                <p class="text-xs text-slate-400 mt-1">
+                  Does the concession have undisputed boundary coordinates in the National Mining Cadastre with zero overlapping artisanal or historical claims?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="p-4 rounded-lg bg-brand-surface/60 border border-brand-border/60">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="gate2" class="w-5 h-5 mt-0.5 rounded border-brand-border text-brand-gold focus:ring-brand-gold bg-brand-dark cursor-pointer audit-check" data-score="25">
+              <div>
+                <label for="gate2" class="text-sm font-semibold text-white block cursor-pointer">
+                  2. QA/QC Certified Geological Assay Database
+                </label>
+                <p class="text-xs text-slate-400 mt-1">
+                  Are your drillhole samples processed by an ISO/IEC 17025 accredited laboratory with inserted CRMs, blanks, and duplicates compliant with JORC 2012 / NI 43-101?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="p-4 rounded-lg bg-brand-surface/60 border border-brand-border/60">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="gate3" class="w-5 h-5 mt-0.5 rounded border-brand-border text-brand-gold focus:ring-brand-gold bg-brand-dark cursor-pointer audit-check" data-score="25">
+              <div>
+                <label for="gate3" class="text-sm font-semibold text-white block cursor-pointer">
+                  3. ESIA & Local Community Social License (SLO)
+                </label>
+                <p class="text-xs text-slate-400 mt-1">
+                  Has an Environmental and Social Impact Assessment (ESIA) been accepted by regional environmental authorities, including signed community grievance mechanisms?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="p-4 rounded-lg bg-brand-surface/60 border border-brand-border/60">
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="gate4" class="w-5 h-5 mt-0.5 rounded border-brand-border text-brand-gold focus:ring-brand-gold bg-brand-dark cursor-pointer audit-check" data-score="25">
+              <div>
+                <label for="gate4" class="text-sm font-semibold text-white block cursor-pointer">
+                  4. Bulk Metallurgy & Logistics Feasibility Model
+                </label>
+                <p class="text-xs text-slate-400 mt-1">
+                  Have metallurgical recovery tests (flotation, gravity, heap leach) been correlated with road/rail haulage access routes to confirm commercial viability?
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- Audit Score Summary -->
+        <div class="mt-8 pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <div class="text-xs text-slate-400 font-mono uppercase">Assessed Bankability Score:</div>
+            <div class="text-2xl font-bold font-cinzel text-brand-gold flex items-center gap-2 mt-1">
+              <span id="auditScoreVal">0%</span>
+              <span id="auditBadge" class="text-xs font-mono px-2 py-0.5 rounded bg-red-900/50 text-red-300 border border-red-700">High Risk / Greenfield</span>
+            </div>
+          </div>
+          <button onclick="applyAuditToContact()" class="px-5 py-2.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-brand-gold/30 text-xs font-semibold uppercase tracking-wider transition">
+            Book Remediation Advisory
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONAL PROJECT CASE INSIGHTS -->
+  <section id="insights" class="py-20 bg-brand-surface/50 border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <div>
+          <span class="text-xs font-mono uppercase text-brand-gold tracking-widest">Representative Track Record</span>
+          <h2 class="font-cinzel text-3xl font-bold text-white mt-1">Strategic Project Insights</h2>
+          <p class="text-slate-400 text-sm mt-2">Selected historical consulting mandates across major geologic provinces.</p>
+        </div>
+        <div class="mt-4 md:mt-0 text-xs text-slate-400 font-mono">
+          <i class="fa-solid fa-shield-cat text-brand-gold mr-1"></i> Data sanitized under strict non-disclosure covenants
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="card-glass rounded-xl overflow-hidden p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-mono text-brand-gold mb-3">
+              <span>NUBIAN SHIELD</span>
+              <span class="px-2 py-0.5 rounded bg-amber-400/10 border border-brand-gold/30">GOLD & VMS</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-cinzel mb-2">Orogenic Gold & Copper-Zinc VMS Concession</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Integrated structural analysis across shear zones and greenstone belts. Redefined geochemical drilling targets, yielding a 38% increase in drill-hit efficiency for an international TSX-V exploration client.
+            </p>
+          </div>
+          <div class="border-t border-brand-border/60 pt-4 mt-2">
+            <div class="flex justify-between text-xs text-slate-300 font-mono">
+              <span>Scope:</span>
+              <span class="text-white">Targeting & Core Auditing</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-300 font-mono mt-1">
+              <span>Target:</span>
+              <span class="text-brand-gold">1.8 Moz Au Inferred</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card-glass rounded-xl overflow-hidden p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-mono text-brand-gold mb-3">
+              <span>DANAKIL BASIN</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-400/10 border border-emerald-500/30 text-emerald-300">POTASH & SALTS</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-cinzel mb-2">Subsurface Evaporite & Carnallite Appraisal</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Advised an investment group on solution mining feasibility, brine geochemistry, and heavy road haulage fleet corridors through harsh geothermal depression zones to the Red Sea port infrastructure.
+            </p>
+          </div>
+          <div class="border-t border-brand-border/60 pt-4 mt-2">
+            <div class="flex justify-between text-xs text-slate-300 font-mono">
+              <span>Scope:</span>
+              <span class="text-white">PFS Haulage & Brine Modeling</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-300 font-mono mt-1">
+              <span>Volume:</span>
+              <span class="text-brand-gold">600,000 MT/yr SOP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card-glass rounded-xl overflow-hidden p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-mono text-brand-gold mb-3">
+              <span>RIFT VALLEY SYSTEM</span>
+              <span class="px-2 py-0.5 rounded bg-blue-400/10 border border-blue-500/30 text-blue-300">INDUSTRIAL MINERALS</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-cinzel mb-2">Diatomite & Bentonite Bulk Extraction Permit</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Guided a domestic joint venture through statutory licensing renewals, ESMP stakeholder consultations with regional pastoral communities, and quarry pit layout optimization.
+            </p>
+          </div>
+          <div class="border-t border-brand-border/60 pt-4 mt-2">
+            <div class="flex justify-between text-xs text-slate-300 font-mono">
+              <span>Scope:</span>
+              <span class="text-white">Licensing & ESMP Authoring</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-300 font-mono mt-1">
+              <span>Term:</span>
+              <span class="text-brand-gold">10-Year Mining License</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTATION & CONTACT FORM -->
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Contact Meta Info -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-mono uppercase text-brand-gold tracking-widest">Confidential Advisory Engagement</span>
+          <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white leading-tight">
+            Initiate a Geological or Commercial Consultation
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Whether preparing for an exploration drilling campaign, negotiating a mining joint venture, or requiring an independent technical audit, Ali Ahmed delivers actionable, discrete counsel.
+          </p>
+
+          <div class="space-y-4 pt-4 border-t border-brand-border text-sm">
+            <div class="flex items-center gap-3 text-slate-300">
+              <div class="w-9 h-9 rounded bg-brand-panel border border-brand-border flex items-center justify-center text-brand-gold">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 font-mono">Direct Communication</div>
+                <div class="font-medium">ali.ahmed.consult@geoconsult-advisory.com</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-300">
+              <div class="w-9 h-9 rounded bg-brand-panel border border-brand-border flex items-center justify-center text-brand-gold">
+                <i class="fa-solid fa-map-pin"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 font-mono">Regional Base</div>
+                <div class="font-medium">Addis Ababa & Regional East Africa Deployments</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-300">
+              <div class="w-9 h-9 rounded bg-brand-panel border border-brand-border flex items-center justify-center text-brand-gold">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <div class="text-xs text-slate-500 font-mono">Confidentiality Guarantee</div>
+                <div class="font-medium">Bilateral Non-Disclosure Agreements (NDA) pre-signed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="lg:col-span-7 bg-brand-panel p-6 sm:p-10 rounded-2xl border border-brand-border shadow-2xl relative">
+          <!-- Notification Alert Toast -->
+          <div id="formAlert" class="hidden mb-6 p-4 rounded-lg bg-emerald-900/60 border border-emerald-500 text-emerald-200 text-xs flex items-start gap-3">
+            <i class="fa-solid fa-circle-check text-base text-emerald-400 mt-0.5"></i>
+            <div>
+              <p class="font-semibold text-sm">Advisory Request Received</p>
+              <p class="mt-0.5 text-emerald-300">Ali Ahmed’s desk will review your concession specifications and reach out within 24 business hours to coordinate an exploratory briefing.</p>
+            </div>
+          </div>
+
+          <form id="consultForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Your Full Name *</label>
+                <input type="text" id="senderName" required placeholder="e.g., Dr. Marcus Vance" class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Corporate / Entity Name *</label>
+                <input type="text" id="senderCompany" required placeholder="e.g., Rift Valley Mineral Corp" class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Business Email *</label>
+                <input type="email" id="senderEmail" required placeholder="marcus@riftminerals.com" class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Phone / WhatsApp</label>
+                <input type="tel" id="senderPhone" placeholder="+251 ... or +44 ..." class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Primary Advisory Area</label>
+                <select id="advisoryArea" class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-brand-gold">
+                  <option value="Exploration Targeting">Exploration Targeting & GIS</option>
+                  <option value="Resource Estimation / JORC">Resource Estimation / JORC Compliance</option>
+                  <option value="Licensing & Permitting">Licensing, Tenure & Ministry Regulatory</option>
+                  <option value="Haulage & Logistics Optimization">Haulage & Bulk Logistics Modelling</option>
+                  <option value="Full Scope PFS/DFS Support">Full Scope PFS / DFS Geologic Support</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Concession Stage</label>
+                <select id="concessionStage" class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-brand-gold">
+                  <option value="Early Greenfield">Early Greenfield / Reconnaissance</option>
+                  <option value="Advanced Drilling">Advanced Core Drilling / Assay Phase</option>
+                  <option value="Feasibility Study">Pre-Feasibility / Scoping Study</option>
+                  <option value="Permitted / Pre-Mining">Permitted / Pre-Construction Haulage</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Project Brief & Specific Mandate *</label>
+              <textarea id="projectNotes" rows="4" required placeholder="Describe the commodity (gold, copper, potash, lithium), regional basin, known drill data, or specific regulatory hurdles..." class="w-full bg-brand-dark border border-brand-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-gold"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" class="w-full py-3.5 rounded-lg bg-gradient-to-r from-brand-gold via-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-brand-dark font-bold text-sm tracking-wider uppercase transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Submit Formal Advisory Mandate
+              </button>
+            </div>
+            <p class="text-[11px] text-center text-slate-500">
+              Information submitted is protected under standard international exploration confidentiality ethics.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-dark border-t border-brand-border/60 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-border/50">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded bg-brand-panel border border-brand-gold/40 flex items-center justify-center text-brand-gold">
+            <i class="fa-solid fa-gem text-sm"></i>
+          </div>
+          <div>
+            <span class="font-cinzel font-bold text-sm text-white">Ali Ahmed Mineral Resources Advisory</span>
+            <p class="text-[11px] text-slate-500">Independent Mining & Geological Consultancy Services</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-slate-400">
+          <a href="#about" class="hover:text-brand-gold transition">About Ali</a>
+          <a href="#services" class="hover:text-brand-gold transition">Practice Areas</a>
+          <a href="#calculator" class="hover:text-brand-gold transition">Haulage Calculator</a>
+          <a href="#readiness" class="hover:text-brand-gold transition">Readiness Audit</a>
+          <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+        <p>&copy; 2026 Ali Ahmed Advisory Services. All rights reserved.</p>
+        <p class="max-w-md text-center sm:text-right">
+          Regulatory Disclaimer: Advisory evaluations and simulated estimates are formulated according to standard professional geological conventions. Formal resource sign-offs require verified QA/QC Qualified Person (QP) mandates.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CLIENT-SIDE LOGIC -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-xmark');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      }
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
+      });
+    });
+
+    // 2. Ore Haulage & Freight Cost Calculator
+    const tonnageInput = document.getElementById('monthlyTonnage');
+    const distanceInput = document.getElementById('distanceKm');
+    const rateInput = document.getElementById('freightRate');
+    const payloadInput = document.getElementById('truckPayload');
+
+    const tonnageDisplay = document.getElementById('tonnageDisplay');
+    const distanceDisplay = document.getElementById('distanceDisplay');
+    const rateDisplay = document.getElementById('rateDisplay');
+
+    const costPerTonDisplay = document.getElementById('costPerTonDisplay');
+    const monthlyFreightDisplay = document.getElementById('monthlyFreightDisplay');
+    const annualFreightDisplay = document.getElementById('annualFreightDisplay');
+    const requiredTrucksDisplay = document.getElementById('requiredTrucksDisplay');
+    const dailyTripsDisplay = document.getElementById('dailyTripsDisplay');
+
+    function updateCalculator() {
+      const tonnage = parseFloat(tonnageInput.value);
+      const distance = parseFloat(distanceInput.value);
+      const ratePerKmTon = parseFloat(rateInput.value);
+      const payloadPerTruck = parseFloat(payloadInput.value);
+
+      // Display inputs
+      tonnageDisplay.textContent = `${tonnage.toLocaleString()} MT`;
+      distanceDisplay.textContent = `${distance.toLocaleString()} km`;
+      rateDisplay.textContent = `$${ratePerKmTon.toFixed(3)} / MT-km`;
+
+      // Calculations
+      // Cost per ton = distance (km) * rate ($/MT-km)
+      const costPerTon = distance * ratePerKmTon;
+      const monthlyTotal = tonnage * costPerTon;
+      const annualTotal = monthlyTotal * 12;
+
+      // Fleet sizing:
+      // Assuming 25 operational days per month
+      const operationalDays = 25;
+      const dailyTonnage = tonnage / operationalDays;
+      const tripsNeededPerDay = Math.ceil(dailyTonnage / payloadPerTruck);
+
+      // Turnaround time: (distance * 2) / average speed (40 km/h) + loading/unloading (6 hrs)
+      // Rough round-trip cycle in days:
+      const transitHours = (distance * 2) / 38 + 6; 
+      const cycleDays = Math.max(1, Math.ceil(transitHours / 20)); // conservative work shifts
+      const fleetRequired = Math.ceil(tripsNeededPerDay * cycleDays * 1.15); // 15% maintenance reserve
+
+      // Display outputs
+      costPerTonDisplay.textContent = `$${costPerTon.toFixed(2)} / MT`;
+      monthlyFreightDisplay.textContent = `$${Math.round(monthlyTotal).toLocaleString()}`;
+      annualFreightDisplay.textContent = `$${(annualTotal / 1000000).toFixed(2)}M / yr`;
+      requiredTrucksDisplay.textContent = `~${fleetRequired} Heavy Haul Units`;
+      dailyTripsDisplay.textContent = `${tripsNeededPerDay} truck dispatches / day`;
+    }
+
+    [tonnageInput, distanceInput, rateInput, payloadInput].forEach(elem => {
+      elem.addEventListener('input', updateCalculator);
+    });
+
+    // Run once on load
+    updateCalculator();
+
+    // 3. Export Simulation to Form
+    function requestLogisticsReport() {
+      const tonnage = tonnageInput.value;
+      const distance = distanceInput.value;
+      const rate = rateInput.value;
+      const notes = document.getElementById('projectNotes');
+      const advisorySelect = document.getElementById('advisoryArea');
+
+      advisorySelect.value = "Haulage & Logistics Optimization";
+      notes.value = `[LOGISTICS SIMULATION INQUIRY]\n- Planned Volume: ${parseInt(tonnage).toLocaleString()} MT/month\n- Haul Distance: ${distance} km\n- Benchmark Freight Rate: $${parseFloat(rate).toFixed(3)}/MT-km\n- Objective: Request Ali Ahmed to review fleet configuration, backhaul opportunities, and contractor tender terms.`;
+
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 4. Project Readiness Audit Scoring
+    const auditChecks = document.querySelectorAll('.audit-check');
+    const auditScoreVal = document.getElementById('auditScoreVal');
+    const auditBadge = document.getElementById('auditBadge');
+
+    function updateAuditScore() {
+      let total = 0;
+      auditChecks.forEach(ch => {
+        if (ch.checked) total += parseInt(ch.dataset.score);
+      });
+
+      auditScoreVal.textContent = `${total}%`;
+
+      if (total === 100) {
+        auditBadge.className = "text-xs font-mono px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-300 border border-emerald-600";
+        auditBadge.textContent = "Bankable / Investment Ready";
+      } else if (total >= 75) {
+        auditBadge.className = "text-xs font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-600";
+        auditBadge.textContent = "Advanced Feasibility Stage";
+      } else if (total >= 50) {
+        auditBadge.className = "text-xs font-mono px-2 py-0.5 rounded bg-amber-900/60 text-amber-300 border border-amber-600";
+        auditBadge.textContent = "Moderate Gaps Identified";
+      } else {
+        auditBadge.className = "text-xs font-mono px-2 py-0.5 rounded bg-red-900/60 text-red-300 border border-red-700";
+        auditBadge.textContent = "High Regulatory/Technical Risk";
+      }
+    }
+
+    auditChecks.forEach(ch => ch.addEventListener('change', updateAuditScore));
+
+    function applyAuditToContact() {
+      const score = auditScoreVal.textContent;
+      const badge = auditBadge.textContent;
+      const notes = document.getElementById('projectNotes');
+      const advisorySelect = document.getElementById('advisoryArea');
+
+      advisorySelect.value = "Licensing & Permitting";
+      notes.value = `[AUDIT EVALUATION MANDATE]\n- Current Readiness Score: ${score} (${badge})\n- Objective: Seeking independent gap analysis for technical reporting, QA/QC assay validation, and Ministry tenure defense.`;
+
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function scrollToContact(topic) {
+      const notes = document.getElementById('projectNotes');
+      notes.value = `Requesting official CV dossier and technical credentials regarding: ${topic}`;
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 5. Handle Contact Form Submission
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('formAlert');
+      alertBox.classList.remove('hidden');
+
+      // Clear fields smoothly
+      document.getElementById('senderName').value = '';
+      document.getElementById('senderCompany').value = '';
+      document.getElementById('senderEmail').value = '';
+      document.getElementById('senderPhone').value = '';
+      document.getElementById('projectNotes').value = '';
+
+      alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+</body>
+</html>
